@@ -1,17 +1,151 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
 </head>
 
 <body>
-    <a-scene>
-        <a-box position="0 0 -3" color="skyblue">
-        </a-box>
+
+    <a-scene cursor="rayOrigin:mouse" raycaste="objects: .clickabl">
+        <a-sky material="src:#sky"></a-sky>
+
+
+        <a-assets>
+            <img id="sky" src="../assets/images/夜空.jpg" alt="">
+            <img id="1" src="../assets/images/太陽.jpg" alt="">
+            <img id="2" src="../assets/images/水星.jpg" alt="">
+            <img id="3" src="../assets/images/金星.jpg" alt="">
+            <img id="4" src="../assets/images/地球.jpg" alt="">
+            <img id="5" src="../assets/images/火星.jpg" alt="">
+            <img id="6" src="../assets/images/木星.jpg" alt="">
+            <img id="7" src="../assets/images/土星.jpg" alt="">
+            <img id="8" src="../assets/images/土星 輪.png" alt="">
+            <img id="9" src="../assets/images/天王星.jpg" alt="">
+            <img id="10" src="../assets/images/海王星.jpg" alt="">
+        </a-assets>
+
+        <a-sphere class="Planet" position="0 0 0" scale="5.5 5.5 5.5" material="src:#1"></a-sphere>
+
+        <a-plane position="0 8 0" width="1.5" height="0.35" color="black" opacity="0.5" scale="3 3 3"></a-plane>
+        <a-text value="Sun" position="0 8 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+
+        <a-torus position="0 0 0" rotation="90 0 0" radius="10" radius-tubular="0.015" color="white"></a-torus>
+        <a-torus position="0 0 0" rotation="90 0 0" radius="20" radius-tubular="0.015" color="white"></a-torus>
+        <a-torus position="0 0 0" rotation="90 0 0" radius="30" radius-tubular="0.015" color="white"></a-torus>
+        <a-torus position="0 0 0" rotation="90 0 0" radius="40" radius-tubular="0.015" color="white"></a-torus>
+        <a-torus position="0 0 0" rotation="90 0 0" radius="50" radius-tubular="0.015" color="white"></a-torus>
+        <a-torus position="0 0 0" rotation="90 0 0" radius="60" radius-tubular="0.015" color="white"></a-torus>
+        <a-torus position="0 0 0" rotation="90 0 0" radius="70" radius-tubular="0.015" color="white"></a-torus>
+        <a-torus position="0 0 0" rotation="90 0 0" radius="80" radius-tubular="0.015" color="white"></a-torus>
+
+
+        <a-entity animation="property:rotation; to: 0 360 0; loop:true; easing:linear; dur:3000;">
+            <a-sphere id="Mercury" position="10 0 0" scale="0.3 0.3 0.3" material="src:#2"></a-sphere>
+
+            <a-plane position="10 2 0" width="1.5" height="0.35" color="black" opacity="0.5" scale="3 3 3"></a-plane>
+            <a-text value="Mercury" position="10 2 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+        </a-entity>
+
+
+        <a-entity animation="property:rotation; to: 0 360 0; loop:true; easing:linear; dur:8000;">
+            <a-sphere id="Venus" position="20 0 0" scale="0.8 0.8 0.8" material="src:#3"></a-sphere>
+
+            <a-plane position="20 2 0" width="1.5" height="0.35" color="black" opacity="0.5" scale="3 3 3"></a-plane>
+            <a-text value="Venus" position="20 2 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+        </a-entity>
+
+
+        <a-entity animation="property:rotation; to: 0 360 0; loop:true; easing:linear; dur:10000;">
+            <a-sphere id="Earth" position="30 0 0" scale="1 1 1" material="src:#4"></a-sphere>
+
+            <a-plane position="30 2 0" width="1.5" height="0.35" color="black" opacity="0.5" scale="3 3 3"></a-plane>
+            <a-text value="Earth" position="30 2 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+        </a-entity>
+
+
+        <a-entity animation="property:rotation; to: 0 360 0; loop:true; easing:linear; dur:12000;">
+            <a-sphere  id="Mars" position="40 0 0" scale="0.9 0.9 0.9" material="src:#5"></a-sphere>
+
+            <a-plane position="40 2 0" width="1.5" height="0.35" color="black" opacity="0.5" scale="3 3 3"></a-plane>
+            <a-text value="Mars" position="40 2 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+        </a-entity>
+
+
+        <a-entity animation="property:rotation; to: 0 360 0; loop:true; easing:linear; dur:50000;">
+            <a-sphere class="Planet" position="50 0 0" scale="3 3 3" material="src:#6"></a-sphere>
+
+            <a-plane position="50 5 0" width="1.5" height="0.35" color="black" opacity="0.5" scale="3 3 3"></a-plane>
+            <a-text value="Jupiter" position="50 5 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+        </a-entity>
+
+
+        <a-entity id="" animation="property:rotation; to: 0 360 0; loop:true; easing:linear; dur:80000;">
+            <a-sphere position="60 0 0" scale="2.8 2.8 2.8" material="src:#7"></a-sphere>
+            <a-torus position="60 0 0" rotation="90 0 0" radius="5" radius-tubular="0.2" material="src:#8"></a-torus>
+
+            <a-plane id="" position="60 5 0" width="1.5" height="0.35" color="black" opacity="0.5"
+                scale="3 3 3"></a-plane>
+            <a-text value="Saturn" position="60 5 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+        </a-entity>
+
+
+        <a-entity id="" animation="property:rotation; to: 0 360 0; loop:true; easing:linear; dur:120000;">
+            <a-sphere position="70 0 0" scale="2 2 2" material="src:#9"></a-sphere>
+            <a-torus position="70 0 0" rotation="0 60 0" radius="3" radius-tubular="0.01" color="white"></a-torus>
+
+            <a-plane id="" position="70 5 0" width="1.5" height="0.35" color="black" opacity="0.5"
+                scale="3 3 3"></a-plane>
+            <a-text value="Uranus" position="70 5 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+        </a-entity>
+
+
+        <a-entity id="" animation="property:rotation; to: 0 360 0; loop:true; easing:linear; dur:130000;">
+            <a-sphere position="80 0 0" scale="2 2 2" material="src:#10"></a-sphere>
+
+            <a-plane id="" position="80 5 0" width="1.5" height="0.35" color="black" opacity="0.5"
+                scale="3 3 3"></a-plane>
+            <a-text value="Neptune" position="80 5 0" color="white" align="center" scale="3 3 3" side="double"></a-text>
+        </a-entity>
+
+        <a-camera position="0 10 0"></a-camera>
+
     </a-scene>
+
+    <script>
+        const Mercury = document.getElementById("Mercury");
+
+        function ChangeMercury() {
+            Mercury.setAttribute("scale", "5 5 5");
+        }
+        Mercury.addEventListener("click", ChangeMercury);
+
+
+        const Venus = document.getElementById("Venus");
+
+        function ChangeVenus() {
+            Venus.setAttribute("scale", "5 5 5");
+        }
+        Venus.addEventListener("click", ChangeVenus);
+
+
+        const Earth = document.getElementById("Earth");
+
+        function ChangeEarth() {
+            Earth.setAttribute("scale", "5 5 5");
+        }
+        Earth.addEventListener("click", ChangeEarth);
+
+        const  Mars = document.getElementById("Mars");
+
+        function ChangeMars() {
+            Mars.setAttribute("scale", "5 5 5");
+        }
+        Mars.addEventListener("click", ChangeMars);
+    </script>
 </body>
 
 </html>
