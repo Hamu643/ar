@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #hud {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 18px;
+            color: gold;
+            background-color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="hud">
+        <button id="Btn1">ノリノリ</button>
+        <button id="Btn2">お誕生日！</button>
+        <button id="Btn3">非表示</button>
+    </div>
+
+    <a-scene id="scene" mindar-face embedded>
+
+        <a-entity id="face" mindar-face-target="anchorIndex:168">
+            <a-gltf-model id="accessory01"></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-face-target="anchorIndex:168">
+            <a-gltf-model id="accessory02" position="0.9 -0.3 0" scale="0.5 0.5 0.5"
+                animation="property: position; from: 0.9 -0.2 0; to: 0.9 0 0; dir: alternate; dur: 1300; loop: true; easing: easeInOutSine"></a-gltf-model>
+        </a-entity>
+
+
+        <a-camera position="0 0 0"></a-camera>
+    </a-scene>
+
+    <script>
+        const accessory01 = document.getElementById("accessory01");
+        const accessory02 = document.getElementById("accessory02");
+
+        const Btn1 = document.getElementById("Btn1");
+        const Btn2 = document.getElementById("Btn2");
+        const Btn3 = document.getElementById("Btn3");
+
+        const Sound1 = new Audio("シャキーン1.mp3");
+        const Sound2 = new Audio("歓声と拍手.mp3");
+
+        function accessory1() {
+            accessory01.setAttribute("src", "グラサン.glb");
+            accessory02.setAttribute("src", "ソーダ.glb");
+
+            accessory01.setAttribute("visible", true);
+            accessory02.setAttribute("visible", true);
+
+            accessory01.setAttribute("position", "-0.07 0 -0.1 ");
+            accessory01.setAttribute("rotation", "0 -180 0");
+            accessory01.setAttribute("scale", "0.6 0.6 0.6");
+
+            Sound1.play();
+        }
+
+        function accessory2() {
+            accessory01.setAttribute("src", "パーティーグラス.glb");
+            accessory02.setAttribute("src", "ケーキ.glb");
+
+            accessory01.setAttribute("visible", true);
+            accessory02.setAttribute("visible", true);
+
+            accessory01.setAttribute("position", "0 0 0 ");
+            accessory01.setAttribute("rotation", "0 0 0");
+            accessory01.setAttribute("scale", "0.6 0.6 0.6");
+
+            Sound2.play();
+        }
+
+        function accessory3() {
+            accessory01.setAttribute("visible", false);
+            accessory02.setAttribute("visible", false);
+        }
+
+        Btn1.addEventListener("click", accessory1);
+        Btn2.addEventListener("click", accessory2);
+        Btn3.addEventListener("click", accessory3);
+    </script>
+
+</body>
+
+</html>
